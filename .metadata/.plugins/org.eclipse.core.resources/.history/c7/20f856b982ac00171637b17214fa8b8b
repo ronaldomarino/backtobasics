@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package br.com.marino.jdbc;
+
+/**
+ * @author Marino
+ *
+ */
+public class JDBCInsere {
+
+}

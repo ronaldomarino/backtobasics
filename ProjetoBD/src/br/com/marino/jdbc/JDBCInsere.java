@@ -1,0 +1,43 @@
+/**
+ * 
+ */
+package br.com.marino.jdbc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Calendar;
+
+/**
+ * @author Marino
+ *
+ */
+public class JDBCInsere {
+	
+	public static void main(String[] args)  throws SQLException{
+		Connection con = new ConnectionFactory().getConnection();
+		
+		String sql = "insert into cad " + 
+					" (nome, sexo, nascimento) " + 
+					" values (?, ?, ?) ";
+		
+		PreparedStatement stmt = con.prepareStatement(sql);
+		
+		stmt.setString(1, "ronaldo");
+		stmt.setString(2, "M");
+		stmt.setDate(3, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+		
+		stmt.execute();
+		stmt.close();
+			
+		System.out.println("Gravado");
+		
+		con.close();
+		
+		
+				
+				
+				
+		
+	}
+}
